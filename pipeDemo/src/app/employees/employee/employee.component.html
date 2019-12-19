@@ -1,0 +1,8 @@
+
+<input type="text" #box
+(keyup.enter)="addgender(box.value); box.value=''"
+placeholder=" gender">
+<button (click)="reset()">Reset</button>
+<div *ngFor="let g of gender">
+{{gender.name}}
+</div>

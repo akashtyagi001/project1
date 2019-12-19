@@ -1,0 +1,51 @@
+<div id="superr" class="container">
+        <form [formGroup]="AllocationForm" class="form" (ngSubmit)="onAlloc()">
+                <h1 style="text-align: center;font-family: verdana;color:#000080">Allocate Here! </h1>
+            <div class="form-group">
+                <label>Project:</label>
+                <select class="custom-select" formControlName="projectId" ng-required="projectId">
+                      
+                        
+                   <option *ngFor="let pro of allProjectList" value={{pro.projectId}}>
+                        {{pro.projectName}}</option>
+                </select>
+            </div>
+        
+   
+        <div class="form-group">
+                <label>Role:</label>
+                <select class="custom-select" formControlName="roleId" ng-required="roleId" placeholder="select Role">
+              
+          <option *ngFor="let ro of allRoleList" value={{ro.roleId}}>
+                {{ro.roleName}}
+              </option>
+             </select>
+            </div>
+
+            
+           
+           <div class="form-group">
+                <label>Location:</label>
+                <select class="custom-select" formControlName="location">
+                     
+                          <option *ngFor="let l of locations" value={{l}}>{{l}}</option>
+               </select>
+               </div>
+             
+               <div class="form-group">
+                    <label>Employee:</label>
+                    <select class="custom-select" formControlName="employeeId" ng-required="employeeId">
+                   
+                      <option *ngFor="let e of  allEmployee"  value={{e.employeeId}}>{{e.employeeName}}</option>
+           </select>
+           </div>
+              
+           <div align="center">
+                <button type="submit" class="btn btn-success" [disabled]="!configureForm.valid">Submit</button>
+                </div>
+        
+
+</form>
+</div>
+
+

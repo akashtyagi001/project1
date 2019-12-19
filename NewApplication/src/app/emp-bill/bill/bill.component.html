@@ -1,0 +1,76 @@
+<p *ngIf="show" style="color:blue;">
+bill:{{done}}<br>
+Name:{{devName}}<br>
+month:{{month}}<br>
+year:{{year}}<br>
+
+</p>
+
+
+
+<div id="superr" class="container">
+
+        <form [formGroup]="BillForm" class="form" (ngSubmit)="onBill()">
+                <h1 style="text-align: center;font-family: verdana;color:#000080">EMPLOYEE BILL </h1>
+                     
+               <div class="form-group">
+                    <label>Employee:</label>
+                    <select class="custom-select" formControlName="employeeId" ng-required="employeeId">
+                   
+                      <option *ngFor="let e of  allEmployee"  [value]="e.employeeId">{{e.employeeName}}</option>
+           </select>
+           </div>
+
+           	
+		<div>
+                <label>Month :</label>
+                <select  class="custom-select"  formControlName="Month" required="true" >
+                <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>
+                <br>
+                </div>
+<div class="form-group">
+    <label>year:</label>
+	<input type="number" class="form-control" formControlName="year"
+	[class.is-invalid]="year.invalid && year.touched"/>
+	<small class="text-danger" [class.d-none]="year.valid ||year.untouched">
+			  year is required and please enter number...
+	</small>
+</div>
+
+                     
+                <button type="submit" class="btn btn-success" [disabled]="!BillForm.valid">Submit</button>
+            
+             </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

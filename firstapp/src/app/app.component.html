@@ -1,0 +1,34 @@
+
+<body style="background-color:powderblue;">
+
+<h1 style="font-size:80px;">WELCOME TO ACTOR</h1>
+<button style="background-color:brown; border-color:black; color:white" (click)="changeVal(true)">Show Actors List</button>
+<button style="background-color:brown; border-color:black; color:white" (click)="changeVal(false)">Hide Actor List</button> 
+<div *ngIf="isValid">
+        <font size="25" face="verdana" color="green">Please select one actor</font>
+
+        <select (change)="setValue($event)">
+                <button class="dropbtn">Dropdown</button>
+            <option value="none">Select your favourite actor</option>
+            <option value="Raj Kumar Rao">Raj Kumar Rao</option>
+            <option value="salman khan">Salam khan</option>
+            <option value="Amir Khan">Amir khan</option>
+            <option value="Ajay degan">Ajay degan</option>
+            <option value="Ranvir Singh">Ranvir Singh</option>
+        </select>
+        
+        <font size="10" face="verdana" color="green">
+        <br/>
+        My Choosen Actor : 
+        <div [ngSwitch]="myChoosenVal">
+                <h3 *ngSwitchCase="'Raj Kumar Rao'">Raj Kumar Rao</h3>
+                <h3 *ngSwitchCase="'salman khan'">Salam khan</h3>
+                       <h3 *ngSwitchCase="'Amir Khan'">Amir khan</h3>
+                    <h3 *ngSwitchCase="'Ajay degan'">Ajay degan</h3>
+                <h3 *ngSwitchCase="'Ranvir Singh'">Ranvir Singh</h3>
+                <h3 *ngSwitchDefault>Default</h3>
+        </div> 
+    </font>
+    </div>
+<Employee-root></Employee-root>
+</body>

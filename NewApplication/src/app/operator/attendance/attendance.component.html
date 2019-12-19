@@ -1,0 +1,147 @@
+
+
+        <p *ngIf="show">
+
+                {{done}}
+      
+              </p>
+      
+            
+      
+            
+      
+            
+      
+      <div class="d-flex justify-content-around">
+      
+              <fieldset>
+      
+              <form [formGroup]="Attendanceform" (ngSubmit)="markSubmit()" class="text-center border border-light p-5">
+      
+                      <div class="form-group">
+      
+          <select formControlName="projectId"   class="form-control mb-4" (change)="projectselect($event.target.value)">
+      
+                  
+      
+            <option *ngFor="let project of project " [value]="project.projectId" >
+      
+              {{ project.projectName }}
+      
+            </option>
+      
+          </select>
+      
+          </div>
+      
+          <div class="form-group">
+      
+                  <select formControlName="employeeId"  class="form-control mb-4" >
+      
+                       <option *ngFor="let employee of Employee "  [value]="employee.employeeId"   >
+      
+                              {{ employee.employeeName}}
+      
+                      </option>
+      
+                  </select>
+      
+          </div>
+      
+          
+      
+          
+      
+           <div class="Form-group">
+      
+                  <label>Month:</label>
+      
+                      
+      
+                      <select  name="month" class="form-control" formControlName="month" required="true">
+      
+                              <option value="january">January</option>
+      
+                              <option value="february">February</option>
+      
+                              <option value="march">March</option>
+      
+                              <option value="april">April</option>
+      
+                              <option value="may">May</option>
+      
+                              <option value="june">June</option>
+      
+                              <option value="july">July</option>
+      
+                              <option value="august">August</option>
+      
+                              <option value="september">September</option>
+      
+                              <option value="october">October</option>
+      
+                              <option value="november">November</option>
+      
+                              <option value="december">December</option>
+      
+                          </select>
+                          
+                        
+                        </div>
+                      
+      
+          <div class="Form-group">
+      
+                  <label>year:</label>
+      
+                  <input type="number" class="form-control" formControlName="year"
+                  [class.is-invalid]="year.invalid && year.touched"/>
+                  <small class="text-danger" [class.d-none]="year.valid ||year.untouched">
+                            year is required and please enter number...
+                  </small>
+                 </div>
+      
+                 <div class="Form-group">
+      
+                      <label>halfday:</label>
+      
+                      <input type="number" class="form-control" formControlName="halfDay"
+                      [class.is-invalid]="halfDay.invalid && halfDay.touched"/>
+                      <small class="text-danger" [class.d-none]="halfDay.valid ||halfDay.untouched">
+                                halfDay is required and please enter number...
+                      </small>
+                     </div>     
+      
+                     <div class="Form-group">
+      
+                          <label>fullday:</label>
+      
+                          <input type="number" class="form-control" formControlName="fullDay"
+                          [class.is-invalid]="fullDay.invalid && fullDay.touched"/>
+                          <small class="text-danger" [class.d-none]="fullDay.valid ||fullDay.untouched">
+                            fullday is required and please enter number...
+                          </small>
+                         </div>
+      
+      
+      
+                        
+
+                        <div align="center">
+            <button type="submit" class="btn btn-success" [disabled]="!Attendanceform.valid">Submit</button>
+            </div>
+      
+                    
+      
+        </form>
+      
+        </fieldset>
+      
+      </div> 
+      
+        
+      
+      
+      
+      <p>Form value: {{ Attendanceform.value | json }}</p> 
+      
